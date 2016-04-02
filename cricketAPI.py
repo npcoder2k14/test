@@ -114,7 +114,7 @@ class Cricket:
          
          base_url='http://www.cricbuzz.com/cricket-news/latest-news'
          res=requests.get(base_url)
-         soup = bs4.BeautifulSoup(res.text,"lxml")
+         soup = bs4.BeautifulSoup(res.text,"html.parser")
          news = soup.select(".cb-col-33 a")
          news_dict={}
          for all_news in news:
@@ -123,13 +123,13 @@ class Cricket:
          
          global player_name
          player_name=request.args.get('player_name')	    	
-         #return news_dict
+         return str(news_dict)
 		
        
 
 if __name__=='__main__':
     attr =  Cricket()
-    app.add_url_rule('/cric',view_func=attr.news)
+    app.add_url_rule('/cric/',view_func=attr.news)
     app.add_url_rule('/cric/matches/',view_func=attr.list_matches)
     app.add_url_rule('/cric/live/',view_func=attr.live_score)
     app.add_url_rule('/cric/player_stats/',view_func=attr.get_player_stats)
