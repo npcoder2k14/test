@@ -1,1 +1,1 @@
-web: python cricketAPI.py
+web: python3 cricketAPI.py
