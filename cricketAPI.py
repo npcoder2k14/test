@@ -9,7 +9,7 @@ app=Flask(__name__)
 player_name=""
 class Cricket:
 
-	def get_player_stats(self, playerName):
+	def get_player_stats(self):
             global player_name
             player_name=request.args.get("player_name")
 	    base_url="http://www.espncricinfo.com"
