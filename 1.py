@@ -1,8 +1,10 @@
 import requests
 import bs4
+from flask import Flask
 
-"""
-address = "172.31.1.4"
+app=Flask(__name__)
+
+address = "172.31.1.6"
 port = "8080"
 user = "HITN051"
 password = "666729757"
@@ -15,13 +17,13 @@ proxyDict = {
               "https" : https_proxy,
               "ftp"   : ftp_proxy
             }
-"""
+
 class news:
 
     def __init__(self):
         self.url = "http://www.premierleague.com/en-gb.html"
 
-        self.res = requests.get(self.url,stream=True)
+        self.res = requests.get(self.url, stream=True, proxies=proxyDict)
         self.soup = bs4.BeautifulSoup(self.res.text,'lxml')
 
         self.all_updated = False
@@ -383,5 +385,10 @@ class Results:
 
         return [self.results_time, self.results_clubs, self.results_location]
 
-test = Results()
-print (test.results())
+#test = Results()
+#print (test.results())
+if __name__=="__main__":
+    tt=news()
+    app.add_url_rule('/x/',view_func=tt.get_news_headlines)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port,debug=True)
