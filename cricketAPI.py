@@ -6,7 +6,7 @@ from flask import request
 
 app=Flask(__name__)
 
-player_name=""
+player_name="sachin tendulkar"
 class Cricket:
 
 	def get_player_stats(self):
