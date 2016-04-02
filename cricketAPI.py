@@ -10,10 +10,9 @@ app=Flask(__name__)
 class Cricket:
 
 	def get_player_stats(self):
-            player=request.args.get("player_name")
-            player="sachin tendulkar"
+            playerName=request.args.get("player_name")
 	    base_url="http://www.espncricinfo.com"
-	    url="http://www.espncricinfo.com/ci/content/player/search.html?search=player"
+	    url="http://www.espncricinfo.com/ci/content/player/search.html?search="
 	    names=[]
 	    names=playerName.split()
 	    playerName="+".join(names)
