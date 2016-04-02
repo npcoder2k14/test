@@ -40,7 +40,7 @@ class Cricket:
 	    		temp=item.find('span')
 	    		temp=temp.string
 	    	player_stats[b.string]=temp
-	    return (player_stats)
+	    return str(player_stats)
 
 	def live_score(self):
 
@@ -50,7 +50,7 @@ class Cricket:
 	    scores = []
 	    for i in team_mate:
     		scores.append(i.text)
-	    return (scores)
+	    return str(scores)
 
 	def list_matches(self):
 		response = requests.get('https://cricket.yahoo.com/matches/schedule')
