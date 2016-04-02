@@ -6,14 +6,13 @@ from flask import request
 
 app=Flask(__name__)
 
-player_name="sachin tendulkar"
+
 class Cricket:
 
 	def get_player_stats(self):
-            global player_name
-            player_name=request.args.get("player_name")
+            player=request.args.get("player_name")
 	    base_url="http://www.espncricinfo.com"
-	    url="http://www.espncricinfo.com/ci/content/player/search.html?search=player_name"
+	    url="http://www.espncricinfo.com/ci/content/player/search.html?search=player"
 	    names=[]
 	    names=playerName.split()
 	    playerName="+".join(names)
