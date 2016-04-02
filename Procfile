@@ -1,1 +1,1 @@
-web: python 1.py
+web: python 2.py
