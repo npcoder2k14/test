@@ -129,7 +129,7 @@ class Cricket:
 
 if __name__=='__main__':
     attr =  Cricket()
-    app.add_url_rule('/cric/',view_func=attr.news)
+    app.add_url_rule('/',view_func=attr.news)
     app.add_url_rule('/cric/matches/',view_func=attr.list_matches)
     app.add_url_rule('/cric/live/',view_func=attr.live_score)
     app.add_url_rule('/cric/player_stats/',view_func=attr.get_player_stats)
