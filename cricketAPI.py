@@ -11,6 +11,7 @@ class Cricket:
 
 	def get_player_stats(self):
             player=request.args.get("player_name")
+            player="sachin tendulkar"
 	    base_url="http://www.espncricinfo.com"
 	    url="http://www.espncricinfo.com/ci/content/player/search.html?search=player"
 	    names=[]
