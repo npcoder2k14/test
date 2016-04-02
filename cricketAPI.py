@@ -40,7 +40,7 @@ class Cricket:
 	    		temp=item.find('span')
 	    		temp=temp.string
 	    	player_stats[b.string]=temp
-	    return player_stats
+	    return (player_stats)
 
 	def live_score(self):
 
@@ -50,7 +50,7 @@ class Cricket:
 	    scores = []
 	    for i in team_mate:
     		scores.append(i.text)
-	    return scores
+	    return (scores)
 
 	def list_matches(self):
 		response = requests.get('https://cricket.yahoo.com/matches/schedule')
@@ -108,7 +108,7 @@ class Cricket:
 				matches.append(l)
 				#print (l)
 
-		return matches
+		return str(matches)
 
 	def news(self):
          
@@ -129,7 +129,7 @@ class Cricket:
 
 if __name__=='__main__':
     attr =  Cricket()
-    app.add_url_rule('/news/',view_func=attr.news)
+    app.add_url_rule('/cric/news/',view_func=attr.news)
     app.add_url_rule('/cric/matches/',view_func=attr.list_matches)
     app.add_url_rule('/cric/live/',view_func=attr.live_score)
     app.add_url_rule('/cric/player_stats/',view_func=attr.get_player_stats)
